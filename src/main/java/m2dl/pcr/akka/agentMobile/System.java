@@ -18,8 +18,12 @@ public class System {
 
         ActorRef actorRef = marseille.actorOf(Props.create(AgentMobile.class));
 
+        actorRef.tell("Where are you?", null);
+
         actorRef.tell(paris, null);
+        actorRef.tell("Where are you?", null);
         actorRef.tell(lille, null);
+        actorRef.tell("Where are you?", null);
 
         Thread.sleep(5000);
         log.debug("Actor System Shutdown Starting...");

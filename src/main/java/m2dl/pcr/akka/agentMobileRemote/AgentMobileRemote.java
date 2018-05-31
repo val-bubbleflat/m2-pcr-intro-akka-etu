@@ -17,7 +17,9 @@ public class AgentMobileRemote extends UntypedActor {
             if (msg instanceof Address) {
                 move((Address) msg);
                 getContext().become(forward,true);
-            } else {
+            } else if(msg instanceof String){
+                log.info("I'm in " + getContext().system().name());
+            }else{
                 unhandled(msg);
             }
         }

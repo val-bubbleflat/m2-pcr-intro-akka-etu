@@ -19,7 +19,9 @@ public class AgentMobile extends UntypedActor {
             if (msg instanceof ActorSystem) {
                 move((ActorSystem)msg);
                 getContext().become(forward,true);
-            } else {
+            } else if(msg instanceof String){
+                log.info("I'm in " + getContext().system().name());
+            }else{
                 unhandled(msg);
             }
         }
