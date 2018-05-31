@@ -11,7 +11,7 @@ public class ErreurControleProvider extends UntypedActor {
     public void onReceive(Object msg) throws Exception {
         if(msg instanceof MessageWithSender){
             MessageWithSender messageWithSender = (MessageWithSender) msg;
-            //log.info("receive message to add ctrl : " + messageWithSender.getMessage());
+            log.info("receive message to add ctrl : " + messageWithSender.getMessage());
             String encryptedMessage = StringUtils.ajouteCtrl(messageWithSender.getMessage());
             messageWithSender.getTarget().tell(encryptedMessage, null);
         }else{
